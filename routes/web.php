@@ -11,32 +11,50 @@
 |
 */
 
+
+Auth::routes();
+
+
+
+Route::group(['middleware' => ['web','auth']], function(){
+
+
+Route::resource('/pengguna', 'NewEkController');
+
 // welcome page
 Route::get('/', 'PageController@index');
 
+Route::get('/front', 'NewEkController@index');
 
+
+Route::get('/create', 'NewEkController@create');
+
+Route::post('/store', 'StaffController@store')->name('storeEk');
+
+});
+// Route::get('foo', 'AdminController@method');
 //create permohonan baru
-Route::get('/create', 'PageController@create');
+// Route::get('/borang', 'PageController@borang');
 
 
 //senarai semak page
-Route::get('/senarai_semak', 'PageController@senarai_semak');
+// Route::get('/senarai_semak', 'PageController@senarai_semak');
 
 
 //senarai semak tidak lengkap
-Route::get('/senarai_semak_tidak_lengkap', 'PageController@senarai_semak_tidak_lengkap');
+// Route::get('/senarai_semak_tidak_lengkap', 'PageController@senarai_semak_tidak_lengkap');
 
 
 //hantar permohonan
-Route::get('/permohonan_hantar', 'PageController@permohonan_hantar');
+// Route::get('/permohonan_hantar', 'PageController@permohonan_hantar');
 
 
 //proses status
-Route::get('/status_proses', 'PageController@status_proses');
+// Route::get('/status_proses', 'PageController@status_proses');
 
 
 //berjaya
-Route::get('/status_berjaya', 'PageController@status_berjaya');
+//Route::get('/status_berjaya', 'PageController@status_berjaya');
 
 
 //lalalala
@@ -91,5 +109,4 @@ Route::get('/status_berjaya', 'PageController@status_berjaya');
 // Route::get('kemaskini_permohonan', function () {
 //     return view('kemaskini_permohonan');
 // });
-
 

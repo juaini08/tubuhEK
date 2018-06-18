@@ -8,12 +8,12 @@ class PageController extends Controller
 {
     //
     public function index(){
-    	return view('index');
+    	return view('welcome');
     }
 
 
-    public function create(){
-    	 return view('create');
+    public function borang(){
+    	 return view('borang_tubuhek');
     }
 
     public function senarai_semak(){
